@@ -1,4 +1,4 @@
-First you need [http://github.com/MrJoes/tornadio/ Tornadio] installed.
+First you need Tornadio (http://github.com/MrJoes/tornadio/) installed.
 
 To run this example, first start up the Tornado server:
 
