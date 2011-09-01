@@ -1,3 +1,5 @@
+First you need [http://github.com/MrJoes/tornadio/ Tornadio] installed.
+
 To run this example, first start up the Tornado server:
 
     python logviewer.py file.log
