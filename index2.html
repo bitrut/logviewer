@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="http://cdn.socket.io/stable/socket.io.js"></script>
+  <script>WEB_SOCKET_SWF_LOCATION = 'http://cdn.socket.io/stable/WebSocketMain.swf';</script>
+  <script>
+    window.onload = function() {
+
+        var s = new io.Socket('localhost', {port: 8001, rememberTransport: false});
+        s.connect();
+
+        s.addEvent('connect', function() {
+            s.send('New participant joined');
+        });
+
+        s.addEvent('message', function(data) {
+            $("#logs")
+			.append("<div>" + data + "</div>")
+			.prop({ scrollTop: $("#logs").prop("scrollHeight") });
+        });
+		
+    };
+</script>
+<style>
+html, body {
+height: 100%;
+margin:0;
+padding:0;
+}
+
+div#logs{
+font-family: "Courier New";
+}
+</style>
+</head>
+<body>
+<div id="menu" style="width:25%; height: 100%; position:fixed; overflow-y:scroll; float:left;">asd</div>
+<div id="logs" style="width:74%; height: 100%; overflow-y:scroll; float:right;"></div>
+</body>
+</html>
